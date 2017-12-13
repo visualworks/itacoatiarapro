@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head>
+<title>Home: Itacoatiara Pro 2017</title>
+<link rel="stylesheet" type="text/css" media="screen" href="css/css.css" />
+<link rel="stylesheet" href="nivo-slider/themes/default/default.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="nivo-slider/nivo-slider.css" type="text/css" media="screen" />
+</head>
+<body id="home-body">
+<div id="home">
+        <div class="slider-wrapper theme-default">
+            <div class="ribbon"></div>
+            <div id="slider" class="nivoSlider">
+            </div>
+            <div id="htmlcaption" class="nivo-html-caption">                
+            </div>
+        </div>
+  <div id="marquee-container">
+        <marquee behavior="scroll" scrollamount="2" direction="left" width="920">
+        	<p></p>
+        </marquee>
+        </div>
+        <div align="center"><a href="http://apbtour.com/" target="_blank"><br />
+          <br />
+        <img src="img/banner-iba.jpg" width="940" height="189" border="0" usemap="#Map" style="margin:0 auto; padding:5px 0;" /></a></div>
+</div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.marquee.js"></script>
+<script type="text/javascript" src="nivo-slider/jquery.nivo.slider.pack.js"></script> 
+<script type="text/javascript">
+
+$(document).ready(function()
+{
+	$.getScript('http://itacoatiarapro2016.tumblr.com/api/read/json?type=photo&num=5&tagged=home', function()
+	{
+		$.each( tumblr_api_read.posts, function(i,item)
+		{
+			slider = "<img src='"+item["photo-url-1280"]+"' alt='' title='"+item["photo-caption"]+"' />";
+			if( item["photo-link-url"] )
+				slider = "<a href='"+item["photo-link-url"]+"'><img src='"+item["photo-url-1280"]+"' alt='' title='"+item["photo-caption"]+"' /></a>";
+				
+			$('#slider').append( slider );
+		});
+		
+		$('#slider').nivoSlider({ effect: 'fade',  pauseTime: 5000, pauseOnHover: false });
+	});
+	
+	$.getScript('http://itacoatiarapro2016.tumblr.com/api/read/json?type=text&num=5&tagged=marquee', function()
+	{
+		
+		$('marquee > p').html("");
+		$.each( tumblr_api_read.posts, function(i,item)
+		{							
+			$('marquee > p').append( $( item["regular-body"] ).text() + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+		});
+		
+		$('marquee').marquee();
+	});
+	
+});
+</script> 
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script> 
+<script type="text/javascript">_uacct = "UA-1175468-1";urchinTracker();</script>
+</body>
+</html>

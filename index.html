@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br" class="no-js">
+<head>
+<title>Itacoatiara Pro 2017 - Live Webcast</title>
+<link rel="stylesheet" type="text/css" media="screen" href="css/css.css" />
+<!--[if gte IE 6]>
+<link rel="stylesheet" type="text/css" media="screen" href="css/ie.css" />
+<![endif]-->
+<meta property="og:title" content="Itacoatiara Pro 2017" />
+<meta property="og:image" content="http://www.itacoatiarapro.com/img/facebook.jpg" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Itacoatiara Pro 2017" />
+<meta property="og:url" content="http://www.itacoatiarapro.com" />
+<meta property="og:description" content="The Elephant ITACOATIARA PRO. Born and Raised at Itacoatiara Beach, Niterói, Rio de Janeiro, Brazil." />
+<!-- END FACEBOOK META -->
+<!-- Google Plus Meta -->
+<meta itemprop="name" content="Itacoatiara Pro 2017">
+<meta itemprop="description" content="The Elephant ITACOATIARA PRO. Born and Raised at Itacoatiara Beach, Niterói, Rio de Janeiro, Brazil.">
+<meta itemprop="image" content="http://www.itacoatiarapro.com/img/facebook.jpg">
+</head>
+<body>
+<div id="topo">
+  <h1>Itacoatiara Pro 2017 - Live Webcast</h1>
+  <div id="topoinner">
+  </div>
+</div>
+<div id="set-width">
+  <div class="wrapper-menu">
+      <ul class="menu" rel="sam1">
+        <li class="active"><a target="iframe_content" href="home.html" rel="home">Home</a></li>
+        <li><a target="iframe_content" href="live.html" rel="live">Live</a></li>
+        <li><a target="iframe_content" href="results.html" rel="results">Results</a></li>
+        <li><a target="iframe_content" href="news.html" rel="news">News</a></li>
+        <li><a target="iframe_content" href="photos.html" rel="photos">Photos</a></li>
+        <li><a target="iframe_content" href="videos.html" rel="videos">Videos</a></li>
+      </ul>
+    <ul id="social-links">
+        <!--li><a target="_blank" href="http://twitter.com/addingSE"><img src="img/twitter-bar.jpg" width="39" height="39" border="0" /></a></li-->
+        <li><a target="_blank" href="http://www.facebook.com/ItacoatiaraProBodyboarding"><img src="img/facebook-bar.jpg" width="39" height="39" border="0" /></a></li>
+        <!--li><a target="_blank" href="http://www.youtube.com/addingtv"><img src="img/youtube-bar.jpg" width="39" height="39" border="0" /></a></li-->
+        <li><a target="_blank" href="http://instagram.com/itacoatiarapro"><img src="img/instagram-bar.jpg" width="39" height="39" border="0" /></a></li>        
+      </ul>
+      <div style="clear:both;"></div>
+    <div class="events-block" style="display:block;">
+      <strong class="logo-apb"><a href="http://www.apbtour.com" target="_blank">APB Tour</a></strong>
+      <ul class="events-list">
+        <li><a target="iframe_content" href="live.html" rel="live">Event Is:<strong id="eventIs">-DAY 4</strong></a></li>
+        <li><a target="iframe_content" href="live.html" rel="live">Webcast Is: <strong id="webcastIs">-on</strong></a></li>
+        <li><a target="iframe_content" href="live.html" rel="live">Waves: <strong id="waves">-</strong></a></li>
+        <li><a target="iframe_content" href="live.html" rel="live">Weather: <strong id="weather">-</strong></a></li>
+        <li><a target="iframe_content" href="live.html" rel="live">Wind: <strong id="wind">-</strong></a></li>
+        <li><a target="iframe_content" href="live.html" rel="live">Schedule: <strong id="schedule">-</strong></a></li>
+        <li><a target="iframe_content" href="live.html" rel="live">Updated: <strong id="updated">-</strong></a></li>
+        <li><a target="iframe_content" href="live.html" rel="live">Local Time: <strong id="local-time"><iframe src="http://free.timeanddate.com/clock/i2kygkfd/n213/fn13/fs12/fc003c82/tct/pct/ftb/tt0/tw0/tm1" frameborder="0" width="158" height="17" allowTransparency="true"></iframe></strong></a></li>
+      </ul>
+      
+    </div>
+  </div>
+  <div id="container-middle">
+    <div id="middle">
+      <iframe frameborder="0" width="990" height="600" marginheight="0" marginwidth="0" name="iframe_content" id="iframe_content" scrolling="no" src="home.html"></iframe>
+    </div>
+  </div>
+  <div id="sponsors"><img src="img/sponsors.jpg" alt="Sponsor" width="940" height="340" border="0" usemap="#Map" />
+  </div>
+</div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/modernizr-1.7.min.js"></script>
+<script type="text/javascript" src="js/jquery.address-1.4.min.js"></script>
+<script type="text/javascript" src="js/live.js?20120521_8"></script>
+<script type="text/javascript">
+$(function()
+{	
+	$.address.init(function(event) {		
+
+		if( event.value != "/" )
+		{
+			destination = event.value.split('/')[1];
+			destinationFile = destination + ".html"
+			if( $('#iframe_content').attr('src') !=  destinationFile )
+			{
+				$('#iframe_content').attr('src', destinationFile );
+				$('ul.menu li').removeClass('active');
+				$('ul.menu li>a[rel="'+destination+'"]').parent().addClass('active');
+			}
+
+		}
+	});
+	$('ul li a').click( function()
+	{
+		$.address.value($(this).attr('rel')); 
+	});
+});
+</script>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+<script type="text/javascript">_uacct = "UA-1175468-1";urchinTracker();</script>
+</body>
+</html>

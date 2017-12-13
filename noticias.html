@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head>
+<title>News: Itacoatiara Pro 2017</title>
+<link rel="stylesheet" type="text/css" media="screen" href="css/css.css?20120910_3" />
+</head>
+<body id="news-body">
+<div id="news">
+<ul id="news-list"></ul>
+</div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script> 
+<script type="text/javascript">
+var postHtml = '';
+$(document).ready(function()
+{
+	$.getScript('http://itacoatiarapro2016.tumblr.com/api/read/json?type=text&tagged=portugues', function()
+	{
+		$.each( tumblr_api_read.posts, function(i,item)
+		{
+			postHtml = "<li id='"+item["id"]+"'>";
+			postHtml +=	"<a class='news' href='javascript:;' onclick='$(this).next().slideToggle();'>";
+			postHtml += item["regular-title"] + " &raquo;";
+			postHtml +=	"</a>";
+			postHtml +=	"<div class='news-post-body'>";
+			postHtml +=	item["regular-body"];
+			postHtml +=	"</div>";
+			postHtml +=	"</li>";
+			
+			$('#news-list').append( postHtml );
+		});
+		$('#news-list').children().first().children('div.news-post-body').slideToggle();
+	});
+});
+</script> 
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script> 
+<script type="text/javascript">_uacct = "UA-1175468-1";urchinTracker();</script>
+</body>
+</html>

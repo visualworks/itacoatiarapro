@@ -1,0 +1,75 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head>
+<title>Videos: Itacoatiara Pro 2017</title>
+<link rel="stylesheet" type="text/css" media="screen" href="css/css.css?20120516_1" />
+</head>
+<body id="videos-body">
+<ul id="nav-days">
+  <li id="day5"><a href="javascript:;" rel="#day5">Day 5</a></li>
+  <li id="day4"><a href="javascript:;" rel="#day4">Day 4</a></li>
+  <li id="day3"><a href="javascript:;" rel="#day3">Day 3</a></li>
+  <li id="day2"><a href="javascript:;" rel="#day2">Day 2</a></li>
+  <li id="day1"><a href="javascript:;" rel="#day1">Day 1</a></li>
+  <li id="day0"><a href="javascript:;" rel="#day0">Pre-event</a></li>
+</ul>
+<div id="videos">
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script> 
+<script type="text/javascript">
+var current_index=1;
+var increment=4;
+var total=0;
+var yt_url = '';
+$(document).ready(function()
+{
+	$.getScript('js_caradogol.js', function()
+	{
+		loadVideos( 'day' + currentDay );
+	});
+	
+	$('ul#nav-days li > a').live('click', function()
+	{
+		loadVideos( $(this).parent().attr('id') );
+	});	
+
+});
+
+function loadVideos( day )
+{
+	$('ul#nav-days li > a').removeClass('active');
+	$('li#'+day+' > a').addClass('active');
+	
+	$('#videos').text('Loading...');
+	
+	queryURL = "http://itacoatiarapro2016.tumblr.com/api/read/json?type=video&tagged="+day;
+	
+	$.ajax(
+	{
+		url: queryURL,
+		dataType: 'script',
+		success: function()	
+		{
+			$('#videos').html('');
+			
+			$.each( tumblr_api_read.posts, function(i,item)
+			{
+				video = "<div class='photo'>"+item["video-player-500"]+"<figcaption>"+item["video-caption"]+"</figcaption></div>";
+				$('#videos').append( video );	
+			});
+			
+			if( !tumblr_api_read.posts.length )
+			{
+				$('#videos').text("No video available.");	
+			}
+		}
+	});
+}
+
+</script>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script> 
+<script type="text/javascript">_uacct = "UA-1175468-1";urchinTracker();</script>
+</body>
+</html>
